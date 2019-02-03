@@ -55,12 +55,14 @@ input {
      <label>ENTER HASH </label><br><br>
     <input type="text" name="Hash" class="field-long" placeholder="Hash" /><br><br>
     <input type="submit" name="submit"  value="PIN"><br>
-<a href = "{{ url_for('view_local_files') }}">VIEW LOCAL FILES</a>
-<br><br>
+
 <a href = "{{ url_for('view_dyanamic_files') }}">FILES PINNED DYANAMICALLY</a>
+<br>
+(Only the files that are dyanamically pinned from endereum.io)
 <br><br>
 <a href = "{{ url_for('view_tokens') }}">VIEW TOKEN OF PINNED FILES</a>
-
+<br>
+(All files present in local ipfs node)
 </form>
 <br>
 

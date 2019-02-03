@@ -113,12 +113,16 @@ def view_dyanamic_files():
 @app.route('/view_token_of_pinned_files')
 def view_tokens():
     output = ""
+    max = 0
     for hash in Hash.query.all():
         f_hash = hash.file_hash
         time = hash.timestamp
         token = datetime.datetime.now() - time
-        output = output + f_hash + " : " + str(round(((token.total_seconds() / 60) * 5),0)) + " " + "ENDRS since this file was pinned" + "\n"
-    return output
+        token1 = (token.total_seconds() / 60) * 5
+        if max < token1:
+            max = token1
+        output = output + f_hash + " \n"
+    return output + " " + str(round(max,0)) + " ENDRS so far"
 
 if __name__ == "__main__":
     app.run()
