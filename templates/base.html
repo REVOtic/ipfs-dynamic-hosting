@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+html, body {
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+}
+label {
+    font-weight:bold;
+    margin-right:10px;
+}
+.table {
+    display:table;
+    text-align:center;
+    width:100%;
+    height:100%;
+    table-layout:fixed;
+}
+.cell {
+    display:table-cell;
+    vertical-align:middle;
+}
+form {
+    display:inline-block;
+    border:8px solid black;
+    width: 450px;
+    padding:50px 0;
+    background: white;
+}
+input {
+    margin-bottom:15px;
+}
+</style>
+<body>
+<div class='table'>
+    <div class='cell'>
+
+<form  action="{{ url_for('Pin') }}" method="post" enctype="multipart/form-data">
+<a href = "{{ url_for('start_daemon') }} " target="_blank">START DAEMON</a>
+<br>
+(A seperate tab will open and ipfs daemon will start. You need to keep the tab open to keep daemon running)
+<br><br>
+<a href = "{{ url_for('pins_from_database') }}" target="_blank">PIN FROM WEBSITE</a>
+<br>
+(A seperate tab will open and files to be pinned will be dyanamically added to the ipfs node. You need to keep the tab open to keep the process running)
+
+<br><br>
+
+     <label>ENTER HASH </label><br><br>
+    <input type="text" name="Hash" class="field-long" placeholder="Hash" /><br><br>
+    <input type="submit" name="submit"  value="PIN"><br>
+<a href = "{{ url_for('view_local_files') }}">VIEW LOCAL FILES</a>
+<br><br>
+<a href = "{{ url_for('view_dyanamic_files') }}">FILES PINNED DYANAMICALLY</a>
+<br><br>
+<a href = "{{ url_for('view_tokens') }}">VIEW TOKEN OF PINNED FILES</a>
+
+</form>
+<br>
+
+        
+    </div>
+</div>
+
+</body>
+</html>
